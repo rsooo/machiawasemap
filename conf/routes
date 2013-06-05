@@ -7,8 +7,8 @@ GET     /                           controllers.Application.index
 GET     /test                       controllers.Application.test
 #GET     /param/:id                  controllers.Application.param(id:Long)
 
-#GET    /form                        controllers.Application.form
-###POST   /sendform                    controllers.Application.sendform
+GET    /form                        controllers.Application.form
+POST   /sendform                    controllers.Application.sendform
 
 GET   /mobile                       controllers.Application.mobile
 

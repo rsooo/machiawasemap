@@ -3,15 +3,15 @@ package controllers
 import play.api.mvc._
 import play.api.data.Form
 import play.api.data.Forms._
-//import models.Mydata
+import models.Mydata
 
 
 
 object Application extends Controller {
 
-  //case class MyFormData(name:String, mail:String)
+  case class MyFormData(name:String, mail:String)
 
-  /*
+
   val form1 = Form(
     mapping(
       "name" -> text,
@@ -19,27 +19,29 @@ object Application extends Controller {
       "tel" -> text
     )(Mydata.apply)(Mydata.unapply)
   )
-  */
+
 
   def index = Action {
     val title = "サンプルページ"
     val msg = "サンプルのページです。"
     val content = "content2"
  //   val datas = Mydata.getAll
-    Ok(views.html.index3(title, msg))
+    val datas = Mydata.getAll
+    Ok(views.html.index3(title, msg, form1, datas))
   }
 
-  /*
+
   def sendform = Action { implicit request =>
     val myForm = form1.bindFromRequest
     val data: Mydata = myForm.get
-    val data: Mydata = myForm.get
-    val title = "サンプルページ"
-    val result = data.addData
-    val msg = "名前：" + data.name + ", メール：" + data.mail
-    Ok(views.html.index2(title, msg, myForm, null))
+    data.addData
+//    //val data: Mydata = myForm.get
+//    val title = "サンプルページ"
+//    val result = data.addData
+//    val msg = "名前：" + data.name + ", メール：" + data.mail
+    Ok(views.html.index3("title", "msg", myForm, null))
   }
-*/
+
   def mobile = Action{
 
     Ok(views.html.mobileindex("タイトル", "メッセージ"))
@@ -59,11 +61,11 @@ object Application extends Controller {
 */
 
 
-  /*
+
   def form = Action {
     val title = "フォーム・サンプル"
     val msg = "名前・メール・年齢を入力ください。"
-    Ok(views.html.index(title, msg, "asdf"))
+    Ok(views.html.index(title, msg))
   }
-*/
+
 }

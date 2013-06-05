@@ -13,7 +13,7 @@ import anorm.SqlParser._
  * To change this template use File | Settings | File Templates.
  */
 
-/*
+
   case class Mydata(
                      name: String,
                      mail: String,
@@ -43,4 +43,3 @@ import anorm.SqlParser._
       }
     }
   }
-*/
